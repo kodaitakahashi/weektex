@@ -3,17 +3,17 @@
 OS X用	
 ##インストール
 1. Maxtexをインストール  
-[インストールページ](http://tug.org/mactex/mirrorpage.html)  
+   [インストールページ](http://tug.org/mactex/mirrorpage.html)  
 1. pandocをインストール  
-```
-brew install pandoc
-```  
-brewが入ってない人は下記のリンクを参照してください。  
-[MacにHomebrewをインストールする](http://qiita.com/_daisuke/items/d3b2477d15ed2611a058)  
+   ```
+   brew install pandoc
+   ```  
+   brewが入ってない人は下記のリンクを参照してください。  
+   [MacにHomebrewをインストールする](http://qiita.com/_daisuke/items/d3b2477d15ed2611a058)  
 1. cloneする  
-```
-git clone git@github.com:kodaitakahashi/weektex.git
-```  
+   ```
+   git clone git@github.com:kodaitakahashi/weektex.git
+   ```  
 
 ##使い方  
 ```shell
