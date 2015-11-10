@@ -28,7 +28,7 @@ $ chmod u+x ./weektex
 $ ./weektex input.md output.pdf
 ```
 
- **※実行するディレクトリにheader.texをあることを確認してください。**  
+ **※実行するディレクトリにh-luatexja.texをあることを確認してください。**  
 
  
 **これでMacユーザは簡単に週報出せるね!!**
