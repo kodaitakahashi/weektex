@@ -4,6 +4,8 @@ OS X用
 ##インストール
 1. Maxtexをインストール  
    [インストールページ](http://tug.org/mactex/mirrorpage.html)  
+1. GostScriptをインストール  
+   [インストールページ](http://pages.uoregon.edu/koch/)  
 1. pandocをインストール  
    ```
    brew install pandoc
