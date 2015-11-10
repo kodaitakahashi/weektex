@@ -1,0 +1,39 @@
+#!/bin/sh
+
+
+empty() {
+    if [ -n "$1" ]; then
+        if [ -n "$2" ]; then
+            return 0
+        else
+            echo "$2 is empty!!"
+            return 1
+        fi
+    else
+        echo "$1 is empty!!"
+        return 1
+    fi
+}
+file_extension_check() {
+    if [[ "$1" =~ .*.md$ ]]; then
+        if [[ "$2" =~ .*.pdf$ ]];then
+            return 0
+        else
+            echo "$2 isn't matched .*.pdf"
+            return 1
+        fi
+    else
+        echo "$1 isn't matched .*.md"
+        return 1
+    fi
+}
+execution_command() {
+    pandoc $1  -o $2 --latex-engine=lualatex -H header.tex -V classoption=twocolumn -V fontsize=10
+
+}
+if empty "$1" "$2"; then
+    if file_extension_check "$1" "$2"; then
+        execution_command "$1" "$2";
+    fi
+fi
+
