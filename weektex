@@ -19,7 +19,10 @@ file_extension_check() {
         if [[ "$2" =~ .*.pdf$ ]];then
             return 0
         else
-            echo "$2 isn't matched .*.pdf"
+            if [[ "$2" =~ .*.tex ]]; then
+                return 0
+            fi
+            echo "$2 isn't matched .*.pdf or $2 isn't matched .*.tex"
             return 1
         fi
     else
