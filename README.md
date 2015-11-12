@@ -25,12 +25,12 @@ $export texhead=path/to/header.tex
 header.texのtitle,data,authorを変更してください  
 
 ```sh
-$ weektex 入力するMarkdownファイル 出力するTexファイル名
-```
+$ weektex 入力するMarkdownファイル
+```l
 ###例
 
 ```sh
-$ weektex input.md output.tex
+$ weektex input.md
 ```
 
  
