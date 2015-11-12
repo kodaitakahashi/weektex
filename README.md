@@ -1,5 +1,6 @@
 #weektex
-研究室用の週報をMarkdownでTexに変換してPDFに出力できるshellscript  
+~~研究室用の週報をMarkdownでTexに変換してPDFに出力できるshellscript~~
+研究室の週報をMarkdownで研究室のフォーマットでTexを出力できるShellscript  
 OS X用	
 ##インストール
 1. Maxtexをインストール  
@@ -19,13 +20,13 @@ git clone git@github.com:kodaitakahashi/weektex.git
 
 ##使い方  
 ```shell
-$ ./weektex 入力するMarkdownファイル 出力するPDFファイル名
+$ ./weektex 入力するMarkdownファイル 出力するTexファイル名
 ```
 ###例
 
 ```shell
 $ chmod u+x ./weektex
-$ ./weektex input.md output.pdf
+$ ./weektex input.md output.tex
 ```
 
  **※実行するディレクトリにheader.texをあることを確認してください。**  
