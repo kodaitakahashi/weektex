@@ -18,14 +18,15 @@ brewが入ってない人は下記のリンクを参照してください。
 git clone git@github.com:kodaitakahashi/weektex.git
 ```  
 
-##使い方  
-```shell
+##使い方
+header.texのtitle,data,authorを変更してください  
+
+```sh
 $ ./weektex 入力するMarkdownファイル 出力するTexファイル名
 ```
 ###例
 
-```shell
-$ chmod u+x ./weektex
+```sh
 $ ./weektex input.md output.tex
 ```
 
