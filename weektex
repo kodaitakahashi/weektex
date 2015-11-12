@@ -28,9 +28,15 @@ file_extension_check() {
     fi
 }
 execution_command() {
-    pandoc $1  -o $2 --latex-engine=lualatex -H header.tex 
+    pandoc $1  -o $2 --latex-engine=lualatex -H $texhead
     sed -i -e '1,50d' $2
-    nkf -We -Lm --overwrite $2
+    platex $2
+    filename=`basename $2 .tex`
+    dvifile="${filename}.dvi"
+    filedir=`dirname $2`
+    path_to_dvifile="${filedir}/${dvifile}"
+    save_to_pdffile="${filedir}/"
+    dvipdfmx $path_to_dvifile
 }
 if empty "$1" "$2"; then
     if file_extension_check "$1" "$2"; then
