@@ -3,12 +3,7 @@
 
 empty() {
     if [ -n "$1" ]; then
-        if [ -n "$2" ]; then
-            return 0
-        else
-            echo "$2 is empty!!"
-            return 1
-        fi
+        return 0
     else
         echo "$1 is empty!!"
         return 1
@@ -16,31 +11,27 @@ empty() {
 }
 file_extension_check() {
     if [[ "$1" =~ .*.md$ ]]; then
-            if [[ "$2" =~ .*.tex ]]; then
-                return 0
-            else
-                echo "$2 isn't matched .*.tex"
-                return 1
-        fi
+        return 0
     else
         echo "$1 isn't matched .*.md"
         return 1
     fi
 }
 execution_command() {
-    pandoc $1  -o $2 --latex-engine=lualatex -H $texhead
-    sed -i -e '1,50d' $2
-    platex $2
-    filename=`basename $2 .tex`
+    filename=`basename $1 .md`
+    filedir=`dirname $1`
+    texfile="${filename}.tex"
+    path_to_texfile="${filedir}/${texfile}"
+    pandoc $1  -o $path_to_texfile --latex-engine=lualatex -H $texhead
+    sed -i -e '1,50d' $path_to_texfile
+    platex $path_to_texfile
     dvifile="${filename}.dvi"
-    filedir=`dirname $2`
     path_to_dvifile="${filedir}/${dvifile}"
-    save_to_pdffile="${filedir}/"
     dvipdfmx $path_to_dvifile
 }
-if empty "$1" "$2"; then
-    if file_extension_check "$1" "$2"; then
-        execution_command "$1" "$2";
+if empty "$1"; then
+    if file_extension_check "$1"; then
+        execution_command "$1";
     fi
 fi
 
