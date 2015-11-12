@@ -16,14 +16,11 @@ empty() {
 }
 file_extension_check() {
     if [[ "$1" =~ .*.md$ ]]; then
-        if [[ "$2" =~ .*.pdf$ ]];then
-            return 0
-        else
             if [[ "$2" =~ .*.tex ]]; then
                 return 0
-            fi
-            echo "$2 isn't matched .*.pdf or $2 isn't matched .*.tex"
-            return 1
+            else
+                echo "$2 isn't matched .*.tex"
+                return 1
         fi
     else
         echo "$1 isn't matched .*.md"
@@ -31,8 +28,9 @@ file_extension_check() {
     fi
 }
 execution_command() {
-    pandoc $1  -o $2 --latex-engine=lualatex -H header.tex -V classoption=twocolumn -V fontsize=10
-
+    pandoc $1  -o $2 --latex-engine=lualatex -H header.tex 
+    sed -i -e '1,50d' $2
+    nkf -We -Lm --overwrite $2
 }
 if empty "$1" "$2"; then
     if file_extension_check "$1" "$2"; then
