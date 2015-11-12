@@ -1,5 +1,5 @@
 #weektex
-~~研究室用の週報をMarkdownでTexに変換してPDFに出力できるshellscript~~
+~~研究室用の週報をMarkdownでTexに変換してPDFに出力できるshellscript~~  
 研究室の週報をMarkdownで研究室のフォーマットでTexを出力できるShellscript  
 OS X用	
 ##インストール
