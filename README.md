@@ -26,7 +26,7 @@ header.texのtitle,data,authorを変更してください
 
 ```sh
 $ weektex 入力するMarkdownファイル
-```l
+```  
 ###例
 
 ```sh
